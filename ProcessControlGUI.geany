@@ -1,0 +1,69 @@
+[editor]
+line_wrapping=false
+line_break_column=72
+auto_continue_multiline=true
+
+[file_prefs]
+final_new_line=true
+ensure_convert_new_lines=false
+strip_trailing_spaces=true
+replace_tabs=false
+
+[indentation]
+indent_width=4
+indent_type=1
+indent_hard_tab_width=8
+detect_indent=true
+detect_indent_width=true
+indent_mode=2
+
+[project]
+name=ProcessControlGUI
+base_path=./
+description=
+file_patterns=
+
+[long line marker]
+long_line_behaviour=1
+long_line_column=72
+
+[build-menu]
+filetypes=C++;None;HTML;
+C++FT_00_LB=_Make
+C++FT_00_CM=make
+C++FT_00_WD=%d/../
+C++FT_01_LB=Make _All
+C++FT_01_CM=make all
+C++FT_01_WD=%d/../
+C++FT_02_LB=Make _Clean
+C++FT_02_CM=make clean
+C++FT_02_WD=%d/../
+NoneFT_00_LB=Git Commit Wiki
+NoneFT_00_CM=make commit_wiki
+NoneFT_00_WD=%d/
+NoneFT_01_LB=Git Push Wiki
+NoneFT_01_CM=make push_wiki
+NoneFT_01_WD=%d/
+NoneFT_02_LB=Git Pull WIki
+NoneFT_02_CM=make pull_wiki
+NoneFT_02_WD=%d/
+HTMLFT_00_LB=_Publish
+HTMLFT_00_CM=%p\\make.bat
+HTMLFT_00_WD=%p\\
+
+[prjorg]
+source_patterns=*.c;*.C;*.cpp;*.cxx;*.c++;*.cc;*.m;*.am;*.ac;
+header_patterns=*.h;*.H;*.hpp;*.hxx;*.h++;*.hh;
+ignored_dirs_patterns=.*;CVS;
+ignored_file_patterns=*.o;*.obj;*.a;*.lib;*.so;*.dll;*.lo;*.la;*.class;*.jar;*.pyc;*.mo;*.gmo;
+generate_tag_prefs=0
+external_dirs=
+show_empty_dirs=true
+
+[files]
+current_page=1
+FILE_NAME_0=9838;Javascript;0;EUTF-8;0;1;0;D%3A%5CProjects%5CProcessControlGUI%5Cmain.js;0;4
+FILE_NAME_1=2748;HTML;0;EUTF-8;2;1;0;D%3A%5CProjects%5CProcessControlGUI%5Cindex.html;0;4
+
+[VTE]
+last_dir=/home/dave
