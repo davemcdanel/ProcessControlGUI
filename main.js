@@ -1,11 +1,11 @@
 //Version
-var version = '0.2.8';
+var version = '0.2.9';
 var title = document.getElementById("title");
 title.innerHTML = 'Dave\'s Red Smoker ' + version;
 
 // DOM Elements
 recvId = document.getElementById("receiver-id");
-status = document.getElementById("status_banner");
+status_banner = document.getElementById("status_banner");
 output = document.getElementById("output");
 setpoint = document.getElementById("setpoint");
 internal = document.getElementById("internal");
@@ -80,7 +80,7 @@ function initializePeerJS() {
     peer.on('open', function(){ //(id) {
         // Workaround for peer.reconnect deleting previous id
         if (peer.id === null) {
-            status.innerHTML = "Status: Received null id from peer open.";
+            status_banner.innerHTML = "Status: Received null id from peer open.";
             console.log('Received null id from peer open');
             peer.id = lastPeerId;
         } else {
@@ -88,7 +88,7 @@ function initializePeerJS() {
         }
         console.log('ID: ' + peer.id);
         recvId.innerHTML = "ID: " + peer.id;
-        status.innerHTML = "Status: " + "Awaiting connection...";
+        status_banner.innerHTML = "Status: " + "Awaiting connection...";
     });
     peer.on('connection', function(c) {
         // Allow only a single connection
@@ -103,11 +103,11 @@ function initializePeerJS() {
         }
         conn = c;
         console.log("Connected to: " + conn.peer);
-        status.innerHTML = "Status: " + "Connected to - " + conn.peer;
+        status_banner.innerHTML = "Status: " + "Connected to - " + conn.peer;
         ready();
     });
     peer.on('disconnected', function() {
-        status.innerHTML = "Status: " + "Connection lost. Please reconnect.";
+        status_banner.innerHTML = "Status: " + "Connection lost. Please reconnect.";
         console.log('Connection lost. Please reconnect.');
 
         // Workaround for peer.reconnect deleting previous id
@@ -117,12 +117,12 @@ function initializePeerJS() {
     });
     peer.on('close', function() {
         conn = null;
-        status.innerHTML = "Status: " + "Connection destroyed. Please check your internet conncection and refresh.";
+        status_banner.innerHTML = "Status: " + "Connection destroyed. Please check your internet conncection and refresh.";
         console.log('Connection destroyed.');
     });
     peer.on('error', function (err) {
         console.log(err);
-        status.innerHTML = "Status: " + "Connect error. Please Wait...";
+        status_banner.innerHTML = "Status: " + "Connect error. Please Wait...";
         //alert('' + err);
     });
 }
@@ -214,7 +214,7 @@ function ready() {
         }
     });
     conn.on('close', function() {
-        status.innerHTML = "Connection reset<br>Awaiting connection...";
+        status_banner.innerHTML = "Connection reset<br>Awaiting connection...";
         conn = null;
     });
 }
