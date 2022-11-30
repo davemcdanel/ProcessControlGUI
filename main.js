@@ -165,9 +165,30 @@ function ready() {
                         break;
                     case 'file':
                         switch (dataObject.name) {
-                            case './temperatures.csv':
-                                console.log('Sent: ' + dataObject.name);
-                                conn.send({command:'Set',type:'file',name:'./temperatures.csv',payload:"junk"});
+                            case 'history':
+                                console.log('History dump started...');
+                                _temperatures = d3.csv('temperatures.cvs');
+                                var _hdataPoint = {Prop:"",Inti:"",Deri:"",Temp:"",Setpoint:"",Internal:"",Output:"",TimeBase:"",Time:""};
+
+                                var _timeLabels = _temperatures.map(function(d) {return d.Timestamp});
+                                var _ExternalData = _temperatures.map(function(d) {return d.ExternalTemp});
+                                var _SetpointData = _temperatures.map(function(d) {return d.Setpoint});
+                                var _InternalData = _temperatures.map(function(d) {return d.InternalTemp});
+                                var _OutputData = _temperatures.map(function(d) {return d.Output});
+                                
+                                for (let x in _temperatures){
+                                    _hdataPoint = {Prop:null,
+                                        Inti:null,
+                                        Deri:null,
+                                        Temp:_ExternalData[x],
+                                        Setpoint:_SetpointData[x],
+                                        Internal:_InternalData[x],
+                                        Output:_OutputData[x],
+                                        TimeBase:null,
+                                        Time:_timeLabels[x]};
+                                    conn.send({command:'Set', type:'value', name:'dataPoint', payload:_hdataPoint});
+                                }
+                                
                                 break;
                             default:
                             }
