@@ -167,7 +167,7 @@ function ready() {
                         switch (dataObject.name) {
                             case 'history':
                                 console.log('History dump started...');
-                                d3.csv("temperatures.cvs").then((_temperatures) => {
+                                d3.csv("/temperatures.csv").then((_temperatures) => {
                                     var _hdataPoint = {Prop:"",Inti:"",Deri:"",Temp:"",Setpoint:"",Internal:"",Output:"",TimeBase:"",Time:""};
 
                                     var _timeLabels = _temperatures.map(function(d) {return d.Timestamp});
