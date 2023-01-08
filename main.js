@@ -306,6 +306,7 @@ $(document).ready(function(){
     $("#resetdata").change(function() { $.get("/cgi-bin/ProcessControlCGI", "set resetdata," + "true"); });
     $("#closeButton").click(function() { conn.close(); conn = null; peer = null; lastPeerId = null; });
     $("#refreshButton").click(function() { window.location.reload(); });
+    $("#rebootButton").click(function() { $.get("/cgi-bin/ProcessControlCGI", "set reboot," + "true"); });
     startSW();
     initializePeerJS(); // Since all our callbacks are setup, start the process of obtaining an ID
     sendRequest();
